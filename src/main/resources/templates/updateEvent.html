@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Update Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <form class="form-signin" method="POST" th:object="${eventBean}"  >
+        <h2 class="form-heading">Update Event</h2>
+
+        <div class="form-group">
+            <input type="radio" name="" value="RUN"  th:field="*{typeEvent}"> Run <Br>
+            <input type="radio" name="" value="BIKE_RIDE" th:field="*{typeEvent}"> Bike ride <Br>
+            <input type="radio" name="" value="OUTDOOR_WORKOUT" th:field="*{typeEvent}"> Outdoor workout <Br>
+            <span style="color:red" th:if="${#fields.hasErrors('typeEvent')}" th:errors="*{typeEvent}">Type event error</span>
+            <input date="date" type="date" class="form-control"  th:field="*{date}"  placeholder="Date" autofocus="true"/>
+            <span style="color:red" th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date error</span>
+            <input time="time" type="time" class="form-control"  th:field="*{time}"  placeholder="Time" autofocus="true"/>
+            <span style="color:red" th:if="${#fields.hasErrors('time')}" th:errors="*{time}">Time error</span>
+            <input address="address" type="text" class="form-control"  th:field="*{address}"  placeholder="Address" autofocus="true"/>
+            <span style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</span>
+            <input description="description" type="text" class="form-control"  th:field="*{description}"  placeholder="Description" autofocus="true"/>
+            <span style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description error</span>
+            <input numberOfUsers="numberOfUsers" type="number" class="form-control"  th:field="*{numberOfUsers}"  placeholder="Number of users" autofocus="true"/>
+            <span style="color:red" th:if="${#fields.hasErrors('numberOfUsers')}" th:errors="*{numberOfUsers}">Number of users error</span>
+<!--            <span th:text="${message}"></span>-->
+<!--            <p><input type="radio" name="" value="RUN"  th:field="*{typeEvent}"> Run <Br>-->
+<!--                <input type="radio" name="" value="BIKE_RIDE" th:field="*{typeEvent}"> Bike ride <Br>-->
+<!--                <input type="radio" name="" value="OUTDOOR_WORKOUT" th:field="*{typeEvent}"> Outdoor workout </p>-->
+<!--            <input date="date" type="date" class="form-control"  th:field="*{date}"  placeholder="Date" autofocus="true"/>-->
+<!--            <input time="time" type="time" class="form-control"  th:field="*{time}"  placeholder="Time" autofocus="true"/>-->
+
+<!--            <input address="address" type="text" class="form-control"  th:field="*{address}"  placeholder="Address" autofocus="true"/>-->
+
+<!--            <input numberOfUsers="numberOfUsers" type="number" class="form-control"  th:field="*{numberOfUsers}"  placeholder="Number of users" autofocus="true"/>-->
+<!--            <span class="has-error" th:text="${error}"></span>-->
+
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" > Update </button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Log in with your account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <form class="form-signin" method="POST" th:object="${info}" th:action="@{/login}" >
+        <h2 class="form-heading">Log in</h2>
+
+        <div class="form-group">
+
+            <input name="email" type="text" class="form-control"  th:value="*{email}" th:errorClass="is-invalid" placeholder="Email" />
+            <br/>
+            <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback">Email error</div>
+<!--                        <span style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >Email error</span>-->
+<!--            <span style="color:red"  class="item fieldinvalid">Email error</span>-->
+            <input name="password" type="password" class="form-control" th:field="*{password}" placeholder="Password" autofocus="true" />
+<!--            <span style="color:red"  class="item fieldinvalid">Password error</span>-->
+            <button class="btn btn-lg btn-primary btn-block" type="submit" > Enter </button>
+            <button class="text-center"><a th:href="@{/create-user}">Create an account</a></button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

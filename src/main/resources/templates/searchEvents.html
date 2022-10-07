@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Search Events</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <form class="form-signin" method="POST" th:object="${searchEvents}" th:action="@{/get-events/{userId}(userId=${userBean.id})}" >
+        <h2 class="form-heading">Search Events</h2>
+
+        <div class="form-group">
+
+            <!--<p><input type="checkbox" name="" value="RUN"  th:field="*{type}"> Run <Br>-->
+            <!--<input type="checkbox" name="" value="BIKE_RIDE" th:field="*{type}"> Bike ride <Br>-->
+            <!--<input type="checkbox" name="" value="OUTDOOR_WORKOUT" th:field="*{type}"> Outdoor workout </p>-->
+            <input date="date" type="date" class="form-control"  th:field="*{startDate}"  placeholder="Start Date" autofocus="true"/>
+            <!--<input time="time" type="time" class="form-control"  th:field="*{startTime}"  placeholder="Start Time" autofocus="true"/>-->
+            <input date="date" type="date" class="form-control"  th:field="*{endDate}"  placeholder="End Date" autofocus="true"/>
+            <!--<input time="time" type="time" class="form-control"  th:field="*{endTime}"  placeholder="End Time" autofocus="true"/>-->
+
+            <input address="address" type="text" class="form-control"  th:field="*{address}"  placeholder="Address" />
+            <input userName="userName" type="text" class="form-control"  th:field="*{userName}"  placeholder="User Name" />
+
+            <input minNumberOfUsers="minNumberOfUsers" type="number" class="form-control"  th:field="*{minNumberOfUsers}"  placeholder="Min Number of users" autofocus="true"/>
+            <input maxNumberOfUsers="maxNumberOfUsers" type="number" class="form-control"  th:field="*{maxNumberOfUsers}"  placeholder="Max Number of users" autofocus="true"/>
+
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" >  Search </button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

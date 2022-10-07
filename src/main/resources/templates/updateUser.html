@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Update User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <form class="form-signin" method="POST" th:object="${userBean}"  >
+        <h2 class="form-heading">Update User</h2>
+
+        <div class="form-group">
+            <p>Name <input name="name" type="text" class="form-control"  th:field="*{name}"  placeholder="Name" autofocus="true"/></p>
+            <span style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</span>
+            <p>Last Name <input lastName="lastName" type="text" class="form-control"  th:field="*{lastName}"  placeholder="Last Name" autofocus="true"/></p>
+            <span style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name error</span>
+            <p>Email <input email="email" type="text" class="form-control"  th:field="*{email}"  placeholder="Email" autofocus="true"/></p>
+            <span style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</span>
+            <p>Password <input password="password" type="text" class="form-control"  th:field="*{password}"  placeholder="Password" autofocus="true"/></p>
+            <span style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</span>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" > Update </button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

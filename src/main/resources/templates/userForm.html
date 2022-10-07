@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<form class="container">
+    <form class="form-signin" method="POST" th:object="${userBean}" th:action="@{/create-user}" >
+        <h2 class="form-heading">User</h2>
+             <div class="form-group">
+                <p>Name: <td th:text="${userBean.name}"> </td></p>
+                  <p>Last Name: <td th:text="${userBean.lastName}"> </td></p>
+                     <p>Email: <td th:text="${userBean.email}"> </td></p>
+
+
+                    <a th:href="@{/update-user/{userId}(userId=${userBean.id})}" class="btn btn-primary">Edit</a>
+                    <button class="btn btn-primary" th:formaction="@{/delete-user-by-id/{userId}(userId=${userBean.id})}" method="GET" type="submit">Delete account</button>
+                    <a th:href="@{/logout}" class="btn btn-primary">Exit</a>
+             </div>
+    </form>
+</form>
+</div>
+<div>
+    <table class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>My workouts</th>
+            <th>Friends</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        <tr>-->
+<!--            <td>-->
+<!--               <a th:href="@{/create-event/{userId}(userId=${userBean.id})}" class="btn btn-primary">New workout</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+        <tr>
+            <td>
+                <a th:href="@{/get-all-events-by-user-id/{userId}(userId=${userBean.id})}" class="btn btn-primary">My workouts</a>
+            </td>
+            <td>
+                <a th:href="@{/get-all-friends}" class="btn btn-primary">My friends</a>
+            </td>
+        </tr>
+<!--        <tr>-->
+<!--            <td>-->
+<!--                <a th:href="@{/get-events/{userId}(userId=${userBean.id})}" class="btn btn-primary">Search workouts</a>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <a th:href="@{/get-users}" class="btn btn-primary">Search users</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
